@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <div>
+        Hello World1!
+    </div>
+    <div class="myclass">
+        Hello World2!
+    </div>
+    <div id = "myID">
+        Hello World3!
+    </div>
+
+    <script>
+        // Select by Tag
+         alert(d3.select("div").text());
+        
+        // Select by Class Name
+        alert(d3.select(".myclass").text());
+        
+        // Select by ID
+        alert(d3.select("#myID").text())
+
+        // append() will add a span tag and the text() method adds new text to our selection
+        d3.select("div.myclass").append("span").text("from Matt");
+        
+        // html() method will set the html content of the selected element
+        d3.select("div.myclass").html("Hello World, from Matt!");
+
+        // attr() method will add/update attribute of selected element
+        d3.select("div.myclass").attr("style", "color: blue");
+
+        // style() method will just set the style property (w/o using attr)
+        d3.select("#myID").style("color", "green");
+
+        // classed() will add another class to the selected when true, or remove it when false
+        d3.select(".myclass").classed("addedSecondClass", true);
+
+        // selectAll() will select all instances of a class
+        d3.selectAll(".myclass").attr("style", "color: red");
+    </script>
+</body>
+
+</html>
