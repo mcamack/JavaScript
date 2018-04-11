@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+    <script type="text/javascript">
+        //  <!--
+        function WriteCookie() {
+            if (document.myform.name1.value == "") {
+                alert("Enter cookie name");
+                return;
+            } else if (document.myform.name2.value == "") {
+                alert("Enter cookie value");
+                return;
+            }
+
+            cookiename = escape(document.myform.name1.value);
+            cookievalue = escape(document.myform.name2.value) + ";";
+
+            document.cookie = cookiename + "=" + cookievalue + ";";
+        }
+
+        function ReadCookie() {
+            var allCookies = document.cookie;
+
+            cookieArray = allCookies.split(';');
+            for (var i = 0; i < cookieArray.length; i++) {
+                name = cookieArray[i].split('=')[0];
+                value = cookieArray[i].split('=')[1];
+                document.getElementById("values").value = "Name: " + name + " \r Value: " + value;
+            }
+        }
+         //-->
+    </script>
+
+</head>
+
+<body>
+
+    <form name="myform" action="">
+
+        Enter name:
+        <input type="text" name="name1" /> Enter value:
+        <input type="text" name="name2" />
+        <input type="button" value="Set Cookie" onclick="WriteCookie();" />
+        <p></p>
+        <input type="button" value="Cooooookie Crisp!" onclick="ReadCookie()" />
+
+        <p>
+            <output type="text" id="values" />
+        </p>
+    </form>
+
+</body>
+
+</html>
