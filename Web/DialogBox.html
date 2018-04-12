@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function createIFrame(website){
+                var ifrm = document.createElement("iframe")
+                ifrm.setAttribute("src", website)
+                ifrm.style.width = "700px"
+                ifrm.style.height = "700px"
+                document.body.appendChild(ifrm)
+            }
+            
+            function getConfirmation(){
+                var ret = confirm("Are you a Star Wars fan?")
+
+                if(ret == true){
+                    createIFrame("https://starwars.com")
+                    return true
+                } else {
+                    createIFrame("http://www.startrek.com")
+                    return false
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>Click button to see confirm dialog box:</p>
+        <form>
+            <input type="button" value="Click Me" onclick="getConfirmation()"/>
+        </form>
+    </body>
+</html>
