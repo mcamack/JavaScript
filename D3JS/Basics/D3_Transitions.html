@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <div id = "tag1">
+        Here's some text!
+    </div>
+    <div id = "tag2">
+        Here's even more great text!!
+    </div>
+
+    <script>
+        var tran = d3.transition().duration(4000);
+        d3.select("#tag1").transition(tran).style("color", "red")
+        d3.select("#tag2").transition(tran).style("color", "blue")
+    </script>
+</body>
+
+</html>

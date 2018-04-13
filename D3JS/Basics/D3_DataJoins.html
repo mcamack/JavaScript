@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- our base "list" only has 2 <li> elements -->
+    <ul id="list">
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- add a button which will execute the remove() JS function -->
+    <input type="button" name="remove" value="Remove fourth index" onclick="javascript:remove()" />
+
+    <script>
+        /* .select all <li> elements (there are 2)
+           .data will assign the dataset (array of 5 numbers) to what we selected (2 <li> elements)
+           .text will create an anonymous function(d,i) to do something w/each data point (d) and it's index (i)
+           .enter gives us the remaining data points which did not have an element associated with them (there are 3)
+           .append adds an element for each data point (we add a list item <li>)
+           .text will create an anonymous function(d,i) to do something w/each of these 3 data points
+        */
+        d3.select("#list").selectAll("li")
+            .data([10, 20, 30, 25, 15])
+            .text(function (d,i) { return "This is pre-existing element at index " + i + " and the value is " + d; })
+            .enter()
+            .append("li")
+            .text(function (d,i) { return "This is dynamically created element at index " + i + " and the value is " + d; });
+
+        function remove() {
+            d3.selectAll("li")
+                .data([10, 20, 30, 15])
+                .exit()
+                .remove()
+        }
+    </script>
+</body>
+
+</html>
